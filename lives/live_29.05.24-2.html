@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 50px);
+        grid-template-rows: repeat(5, 50px);
+        gap: 5px;
+      }
+
+      .square {
+        width: 100%;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .transparent {
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+    </div>
+
+    <script>
+      const squares = document.querySelectorAll(".square");
+      for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener("click", (event) => {
+          if (event.target.classList.contains("red")) {
+            event.target.classList.remove("red");
+            event.target.classList.add("transparent");
+          }
+          setTimeout(checkVictory, 500);
+        });
+      }
+
+      function checkVictory() {
+        let victory = true;
+        for (let i = 0; i < squares.length; i++) {
+          if (squares[i].classList.contains("red")) {
+            victory = false;
+          }
+        }
+        if (victory) {
+          alert("YOU WON!");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="first-number" />
+    <select name="operation" id="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text" id="second-number" />
+    <button onclick="calculate()">Esegui</button>
+    <p id="result"></p>
+
+    <script>
+      const result = document.getElementById("result");
+
+      function isNumber(value) {
+        if (typeof value == "number" && !isNaN(value) && isFinite(value)) {
+          return true;
+        }
+
+        return false;
+      }
+
+      function calculate() {
+        const firstNumber = +document.getElementById("first-number").value;
+        const secondNumber = +document.getElementById("second-number").value;
+        const operation = document.getElementById("operation").value;
+
+        let value = ""
+
+        if (isNumber(firstNumber) && isNumber(secondNumber)) {
+          if (operation === "+") {
+            value = firstNumber + secondNumber;
+          } else if (operation === "-") {
+            value = firstNumber - secondNumber;
+          } else if (operation === "*") {
+            value = firstNumber * secondNumber;
+          } else if (operation === "/") {
+            value = firstNumber / secondNumber;
+          }
+
+          result.innerHTML = value
+          
+        } else {
+          alert("Gli input devono essere numeri");
+        }
+      }
+    </script>
+  </body>
+</html>

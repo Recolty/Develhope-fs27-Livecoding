@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .primo {
+        height: 400px;
+        background-color: beige;
+      }
+      .secondo {
+        height: 400px;
+        background-color: burlywood;
+        position: relative;
+      }
+      .palla {
+        background-color: red;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        left: 100px;
+        top: 50px;
+      }
+      .palla-sticky {
+        background-color: blue;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: sticky; /*funziona come un fixed ma parte quando incontriamo l'elemento.*/
+        left: 100px;
+        top: 0;
+      }
+    </style>
+  </head>
+  <!--Il div può simulare qualsiasi elemento
+un div è diviso in:
+contenuto,
+padding: spazio tra contenuto e margine
+bordo: limite
+margine: spazio tra bordo ed elementi esterni.-->
+  <body>
+    <div class="primo"></div>
+    <div class="palla-sticky"></div>
+    <div class="secondo">
+      <div>
+        <div class="palla"></div>
+      </div>
+    </div>
+    <div class="primo"></div>
+    <div class="primo"></div>
+  </body>
+</html>
