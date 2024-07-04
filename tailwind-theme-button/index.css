@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a202c;
+  --color-secondary: #2d3748;
+  --color-accent: #4a5568;
+}
+
+[data-theme="cyberpunk"] {
+  --color-primary: #ff00ff;
+  --color-secondary: #00ffff;
+  --color-accent: #ff9900;
+}
