@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .square {
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background-color: pink;
+      top: 0px;
+    }
+  </style>
+  <body>
+    <div class="square"></div>
+
+    <script>
+      const square = document.querySelector(`.square`);
+      const keyPressed = [];
+
+      window.addEventListener(`keyup`, (event) => {
+        keyPressed.splice(keyPressed.indexOf(event.key), 1)
+        console.log(keyPressed)
+      })
+
+      window.addEventListener(`keydown`, (event) => {
+        const position =
+          square.getBoundingClientRect(); /* prendi le misure e la posizione dell'elemento */
+        if (!keyPressed.includes(event.key)) {
+          keyPressed.push(event.key);
+        }
+        console.log(keyPressed)
+        switch (event.key) {
+          case `ArrowUp`:
+            square.style.top = position.top - 10 + `px`;
+            break;
+          case `ArrowDown`:
+            square.style.top = position.top + 10 + `px`;
+            break;
+          case `ArrowLeft`:
+            square.style.left = position.left - 10 + `px`;
+            break;
+          case `ArrowRight`:
+            square.style.left = position.left + 10 + `px`;
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

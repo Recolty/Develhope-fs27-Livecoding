@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flexbox {
+        display: flex;
+      }
+
+      .card {
+        width: 200px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 2px solid gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="title" type="text" />
+    <input id="description" type="text" />
+    <button onclick="addCard()">Add Card</button>
+    <div id="card-holder" class="flexbox"></div>
+    <script>
+      const title = document.getElementById(`title`);
+      const description = document.getElementById(`description`);
+      const cardHolder = document.getElementById(`card-holder`);
+
+      function addCard() {
+        /* fondamentale nella funzione, sennò non genera più card */
+        const card = document.createElement(`div`);
+        card.classList.add(`card`);
+        const h3 = document.createElement(`h3`);
+        const p = document.createElement(`p`);
+
+        card.appendChild(h3);
+        card.appendChild(p);
+        h3.innerHTML = title.value;
+        p.innerHTML = description.value;
+
+        cardHolder.appendChild(card);
+      }
+    </script>
+  </body>
+</html>

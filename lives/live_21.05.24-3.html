@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style></style>
+</head>
+<body>
+  <form action="">
+    <div>
+    <input id="username" type="text"> 
+    <label for="username">Username</label>
+  </div>
+  <div>
+    <input id="name" type="text"> 
+    <label for="name">Name</label>
+  </div>
+  <div>
+    <input id="password" type="password"> 
+    <label for="password">Password</label>
+  </div>
+
+    <button type="submit" onclick="invia(event)">Enter</button>
+  </form>
+
+  <script>
+    const userName = document.querySelector(`#username`)
+    const clientName = document.querySelector(`#name`)
+    const password = document.querySelector(`#password`)
+
+    const users = [];
+
+    function invia(event) {
+      event.preventDefault()
+      if (userName.value.trim().length >= 1 && clientName.value.trim().length >= 1 && password.value.trim().length >= 8) {
+      // console.log (userName.value)
+      // console.log (clientName.value)
+      // console.log (password.value)
+      users.push({username: userName.value, name: clientName.value, password: password.value,})
+      console.log(users)
+      }
+      
+    }
+  </script>
+</body>
+</html>

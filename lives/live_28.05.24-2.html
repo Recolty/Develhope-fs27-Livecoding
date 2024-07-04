@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid grey;
+        width: 150px;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .container {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="title" />
+    <input type="text" id="description" />
+    <select name="" id="type">
+      <option value="1">Type1</option>
+      <option value="2">Type2</option>
+      <option value="3">Type3</option>
+    </select>
+    <button onclick="create()">Create</button>
+
+    <div>
+      <h3>Seleziona il Tipo:</h3>
+      <select name="filter" id="filter" onchange="generateCard()">
+        <option value="all">all</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <div class="container">
+      <div class="grid"></div>
+    </div>
+    <script>
+      const grid = document.querySelector(".grid");
+      const title = document.getElementById("title");
+      const paragraph = document.getElementById("description");
+      const type = document.getElementById("type");
+      const filter = document.getElementById("filter");
+
+      const cardArray = [];
+
+      function create() {
+        const cardObject = {
+          h1: title.value,
+          description: paragraph.value,
+          type: type.value,
+        };
+
+        cardArray.push(cardObject);
+        generateCard()
+      }
+
+      function generateCard() {
+        grid.innerHTML = ""
+        cardArray
+          .filter(
+            (element) => element.type === filter.value || filter.value === "all"
+          )
+          .forEach((element) => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            const h1 = document.createElement("h1");
+            h1.innerHTML = element.h1;
+
+            const descriptionP = document.createElement("p");
+            descriptionP.innerHTML = element.description;
+
+            const typeP = document.createElement("p");
+            typeP.innerHTML = `type: ${element.type}`;
+
+            card.appendChild(h1);
+            card.appendChild(descriptionP);
+            card.appendChild(typeP);
+
+            grid.appendChild(card);
+          });
+      }
+    </script>
+  </body>
+</html>
