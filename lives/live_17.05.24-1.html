@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .aumenta {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="aumenta">
+      <button onclick="aumenta()">cliccami</button>
+      <p>0</p>
+    </div>
+    <button onclick="reset()" id="reset">reset</button>
+    <script>
+      const numeroDom = document.querySelector("p");
+      
+
+      function aumenta() {
+        const numero = +numeroDom.innerHTML + 1;
+        /*il "+" rende la stringa un numero */
+        numeroDom.innerHTML = numero;
+        checkReset()
+      }
+
+      function reset() {
+        numeroDom.innerHTML = 0;
+        checkReset()
+      }
+
+      function checkReset () {
+        const reset = document.getElementById("reset")
+
+        if (numeroDom.innerHTML === "0") {
+          reset.style.display = "none"
+        } else {
+          reset.style.display = "inline-block"
+        }
+      }
+
+      checkReset()
+      
+    </script>
+  </body>
+</html>

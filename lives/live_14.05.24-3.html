@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+      }
+      .square-box {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .square {
+        width: 150px;
+        height: 150px;
+        opacity: 0.9;
+      }
+
+      .red {
+        background-color: red;
+        position:absolute;
+        top:30%;
+        z-index: 1;
+      }
+
+      .green {
+        background-color: green;
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        z-index: 2;
+      }
+
+      .blue {
+        background-color: rgb(120, 120, 227);
+        position: absolute;
+        left: 45%;
+        top: 50%;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square-box">
+      <div class="square red"></div>
+      <div class="square green"></div>
+      <div class="square blue"></div>
+    </div>
+  </body>
+</html>

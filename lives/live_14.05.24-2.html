@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      font-size: 40px;
+      background-color: #efefef;
+      padding: 32px;
+      border: 0;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .notifica {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+      top: 0;
+      right: 0;
+      font-size: 40px;
+      color: aliceblue;
+      transform: translate(50%, -50%)
+    }
+    
+
+  </style>
+</head>
+<body>
+  <main>
+    <button>
+      click me
+    <div class="notifica">
+      1
+    </div>
+  </button>
+  </main>
+</body>
+</html>

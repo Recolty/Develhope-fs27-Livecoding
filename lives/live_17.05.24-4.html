@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .stile1 {
+        background-color: grey;
+        border: 1px solid blue;
+        color: blue;
+      }
+      .stile2 {
+        background-color: white;
+        border: 1px solid red;
+        color: red;
+      }
+
+      .stile3 {
+        background-color: beige;
+        border: 1px solid yellow;
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stylish-button">
+      <button class="stile1" id="bottone" onclick="change()">click me!</button>
+    </div>
+    <script>
+      const buttonStylish = document.getElementById("stylish-button");
+      const button = document.getElementById("bottone");
+
+      // function change() {
+      //   if (buttonStylish.innerHTML === `<button class="stile1" onclick="change()">click me!</button>`) {
+      //     buttonStylish.innerHTML = `<button class="stile2" onclick="change()">click me!</button>`
+      //   } else if (buttonStylish.innerHTML === `<button class="stile2" onclick="change()">click me!</button>`) {
+      //     buttonStylish.innerHTML = `<button class="stile3" onclick="change()">click me!</button>`
+      //   } else {
+      //     buttonStylish.innerHTML = `<button class="stile1" onclick="change()">click me!</button>`
+      //   }
+      // }
+
+      function change() {
+        if (button.classList.contains(`stile1`)) {
+          button.classList.remove(`stile1`);
+          button.classList.add(`stile2`);
+        } else if (button.classList.contains(`stile2`)) {
+          button.classList.remove(`stile2`);
+          button.classList.add(`stile3`);
+        } else if (button.classList.contains(`stile3`)) {
+          button.classList.remove(`stile3`);
+          button.classList.add(`stile1`);
+        }
+      }
+    </script>
+  </body>
+</html>

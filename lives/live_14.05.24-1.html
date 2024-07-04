@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      :root {
+        --font-color: rgb(94, 94, 94);
+        font-size: 16px;
+      }
+
+      header {
+        background-color: lightblue;
+        padding: 16px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 1.375rem;
+      }
+
+      p,
+      a {
+        font-size: 1rem;
+      }
+
+      .link-header {
+        display: flex;
+        gap: 20px;
+      }
+
+      .link-header a {
+        color: var(--font-color);
+        font-weight: 600;
+        padding: 5px;
+        border: 2px solid var(--font-color);
+        border-radius: 5px;
+        background-color: aliceblue;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+
+      main h1 {
+        font-size: 1.875rem;
+      }
+
+      main p {
+        width: 90%;
+      }
+
+      @media (min-width: 576px) {
+        header {
+          flex-direction: row;
+          gap: 45px;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        p,
+        a {
+          font-size: 1.375rem;
+        }
+
+        main h1 {
+          font-size: 2.25rem;
+        }
+
+        main p {
+          width: 80%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        header {
+          flex-direction: row;
+          gap: 60px;
+        }
+
+        h1 {
+          font-size: 1.875rem;
+        }
+
+        p,
+        a {
+          font-size: 1.5rem;
+        }
+
+        main h1 {
+          font-size: 2.375rem;
+        }
+
+        main p {
+          width: 70%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Gadgets</h1>
+      <div class="link-header">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>Rampino</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sit?
+        Nisi officia, omnis quos dolorum possimus accusantium quas culpa
+        deserunt nam, consequuntur tempora, facilis repellat tempore perferendis
+        exercitationem saepe vero!
+      </p>
+    </main>
+  </body>
+</html>

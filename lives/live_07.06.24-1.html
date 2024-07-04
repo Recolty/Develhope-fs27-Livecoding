@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="sentences"></ul>
+    <input type="number" name="awnser" id="awnser" />
+    <label for="awnser">Which is the longest sentence?</label>
+    <button onclick="giveAwnser()">Send</button>
+    <script>
+      const sentences = [
+        "Come quando fuori piove",
+        "Voglio restare giovane tanto tempo",
+        "Barbabietola da zucchero",
+      ];
+
+      sentences.forEach((sentence) => {
+        const ul = document.getElementById("sentences");
+        const li = document.createElement("li");
+        li.innerHTML = `${sentences.indexOf(sentence) + 1} - ${sentence}`;
+        ul.appendChild(li);
+      });
+
+      function giveAwnser() {
+        let rightStringAwnser = sentences[0];
+        sentences.forEach((sentence) => {
+          if (
+            sentence.replace(" ", "").length >
+            rightStringAwnser.replace(" ", "").length
+          ) {
+            rightStringAwnser = sentence;
+          }
+        });
+
+        const rightAwnser = sentences.indexOf(rightStringAwnser) + 1;
+
+        const userAwnser = +document.getElementById("awnser").value;
+        if (userAwnser === rightAwnser) {
+          alert("You won!");
+        } else {
+          alert("Wrong awnser!");
+        }
+
+        /*  SOLUZIONE - STEFAN
+        function giveAwnser() {
+          if (+input.value === 1 + frasi.indexOf(frasi.find(f => f.length === Math.max(...frasi.map(f1 => f1.length))))) {
+            alert("Hai vinto") 
+          } else {
+            alert("Hai perso")
+          }
+        }*/
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #square-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+
+      .square {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="square-container">
+      <div style="background: rgb(0, 0, 0)" class="square"></div>
+    </div>
+    <button onclick="double()">Double</button>
+    <button onclick="half()">Half</button>
+    <script>
+      const container = document.getElementById("square-container");
+      let red = 1;
+      let green = 1;
+      let blue = 1;
+
+      function double() {
+        const numberOfSquare = document.querySelectorAll(".square").length;
+        for (let i = 0; i < numberOfSquare; i++) {
+          const square = document.createElement("div");
+          square.classList.add("square");
+          if (red <= 255) {
+            square.style.backgroundColor = `rgb(${red}, 0, 0 )`;
+            red += 1
+          } else if (green <= 255) {
+            square.style.backgroundColor = `rgb(255, ${green}, 0`;
+            green += 1
+          } else {
+            square.style.backgroundColor = `rgb(255, 225, ${blue})`;
+            blue += 1
+          }
+          container.appendChild(square);
+          if (blue === 255) {
+            red = 1
+            green = 1
+            blue = 1
+          }
+          console.log(square.style.backgroundColor)
+        }
+      }
+
+      function half() {
+        const numberOfSquare = document.querySelectorAll(".square").length;
+        for (let i = 0; i < Math.floor(numberOfSquare / 2); i++) {
+          container.lastElementChild.remove();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .panino {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .pane {
+        height: 50px;
+        background-color: rgb(232, 196, 104);
+      }
+
+      .farcitura {
+        display: flex;
+        gap: 20px;
+        height: 50px;
+      }
+
+      .ingrediente1 {
+        background-color: rgb(95, 59, 59);
+        width: 100%;
+      }
+
+      .contenitore-quadrati {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .quadrato {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="panino">
+      <div class="pane"></div>
+      <div class="farcitura">
+        <div class="ingrediente1"></div>
+        <div class="ingrediente1"></div>
+        <div class="ingrediente1"></div>
+      </div>
+      <div class="pane contenitore-quadrati">
+        <div class="quadrato"></div>
+        <div class="quadrato"></div>
+      </div>
+    </div>
+  </body>
+</html>

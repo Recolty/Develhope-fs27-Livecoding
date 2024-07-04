@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #rectangle-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="width" />
+    <label for="width">width</label>
+    <input type="text" id="height" />
+    <label for="height">height</label>
+    <input type="color" id="color" />
+    <label for="color">color</label>
+    <input type="text" id="rectangle-number" />
+    <label for="rectangle-number">Rectangle Number</label>
+    <div class="buttons">
+      <button onclick="perimeter()">Perimeter</button>
+      <button onclick="area()">Area</button>
+    </div>
+    <div id="rectangle-container"></div>
+    <script>
+      const inputs = document.querySelectorAll("input");
+      const rectangleContainer = document.querySelector("#rectangle-container");
+      const body = document.querySelector("body");
+
+      if (typeof width === "number" && typeof height === "number") {
+        rectangle.style.width = width + "px";
+        rectangle.style.height = height + "px";
+      }
+
+      inputs.forEach((input) => {
+        input.addEventListener("change", (event) => {
+          const width = +document.getElementById("width").value;
+          const height = +document.getElementById("height").value;
+          const color = document.getElementById("color").value;
+          const rectangleNumber = +document.getElementById("rectangle-number").value;
+
+          if (
+            typeof width === "number" &&
+            typeof height === "number" &&
+            typeof rectangleNumber === "number"
+          ) {
+            rectangleContainer.innerHTML = "";
+            for (let i = 0; i < rectangleNumber; i++) {
+              const rectangle = document.createElement("div")
+              rectangle.style.width = width + "px";
+              rectangle.style.height = height + "px";
+              rectangle.style.backgroundColor = color;
+              rectangleContainer.appendChild(rectangle)
+            }
+          }
+        });
+      });
+
+      function perimeter() {
+        const width = +document.getElementById("width").value;
+        const height = +document.getElementById("height").value;
+        if (typeof width === "number" && typeof height === "number") {
+          console.log((width + height) * 2);
+        }
+      }
+
+      function area() {
+        const width = +document.getElementById("width").value;
+        const height = +document.getElementById("height").value;
+        if (typeof width === "number" && typeof height === "number") {
+          console.log(width * height);
+        }
+      }
+    </script>
+  </body>
+</html>

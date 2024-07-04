@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .square {
+        height: 200px;
+        width: 200px;
+      }
+
+      .pink {
+        background-color: rgb(249, 197, 206);
+      }
+
+      .orange {
+        background-color: rgb(249, 198, 105);
+      }
+
+      .violet {
+        background-color: rgb(186, 131, 237);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square" onclick="colore()"></div>
+
+    <script>
+      const square = document.querySelector(".square");
+      const colors = [`pink`, `orange`, `violet`];
+      let contatore = 0;
+     
+
+      function colore() {
+        square.style.backgroundColor = colors[contatore];
+        contatore ++;
+        if (contatore === colors.length) {
+          contatore = 0;
+        }
+      }
+      
+    </script>
+  </body>
+</html>
