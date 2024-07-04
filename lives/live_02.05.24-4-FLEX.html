@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Example</title>
+    <style>
+      .box1{
+        width: 100px;
+        height: 100px;
+      }
+      .box2 {
+        width: 150px;
+        height: 100px;
+      }
+
+      .box3 {
+        width: 100px;
+        height: 150px;
+      }
+
+      .bg-red {
+        background-color: red;
+      }
+
+      .bg-green {
+        background-color: green;
+      }
+
+      .bg-blue {
+        background-color: blue;
+      }
+
+      .container {
+        display: flex;
+        gap: 16px; /* Crea un Gap tra gli elementi */
+        flex-direction: column;
+        align-items: center; /*li allinea sull'asse secondario (verticale se flex-direction: raw, nel caso di un flex-direction: column sarebbe in orizzontale) di default è stretch, quindi prende tutta la rispettiva grandezza della pagina*/
+        justify-content: center;
+      }
+    </style>
+    <!-- Di default FLEX mette in riga-->
+  </head>
+  <body>
+    <main>
+      <div class="box1 bg-red container"></div>
+      <div class="box2 bg-green container"></div>
+      <div class="box3 bg-green container"></div>
+    </main>
+  </body>
+</html>

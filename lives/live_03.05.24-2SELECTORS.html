@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 8px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border: 1px solid gray;
+        padding: 8px;
+      }
+
+      p {
+        color: aquamarine;
+      }
+
+      p:hover {
+        color: black;
+      }
+
+      .container p {
+        color: blueviolet;
+      }
+
+      .container p:nth-child(3) {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Questi sono i container</p>
+      <div class="container">
+        <p>Testo 1</p>
+        <p>Testo 2</p>
+        <p>Testo 3</p>
+        <div>
+          <p>Testo 4</p>
+        </div>
+      </div>
+      <div class="container">
+        <p>Testo 1</p>
+        <p>Testo 2</p>
+        <p>Testo 3</p>
+      </div>
+      <div class="container">
+        <p>Testo 1</p>
+        <p>Testo 2</p>
+        <p>Testo 3</p>
+      </div>
+    </main>
+  </body>
+</html>

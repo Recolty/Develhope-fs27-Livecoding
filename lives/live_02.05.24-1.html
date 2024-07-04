@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        margin: 0;
+      }
+
+      .green {
+        color: green;
+      }
+
+      .cyan {
+        color: rgb(38, 177, 177);
+      }
+
+      li {
+        transition: all 0.5s linear;
+        /* seleziona una proprietà - quanto tempo per la trnasizione - tipo di proprietà */
+      }
+
+      li:hover {
+        font-size: larger;
+        color: salmon;
+        filter: blur(10px);
+      }
+
+      img {
+        width: 10px;
+        transition: all 0.5s ease-out;
+        filter: blur(200px);
+
+      }
+
+      img:hover {
+        width: 200px;
+        filter: blur(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="green">Questi sono gli studenti</h1>
+      <h1 class="cyan">e sono molto bravi</h1>
+    </header>
+
+    <div>
+      <ul>
+        <li style="font-weight: bold; font-style: italic; color: violet">
+          Mirko
+        </li>
+        <li>Andrea</li>
+        <li>Domenica</li>
+        <li>Manuel</li>
+      </ul>
+
+      <p>
+        Ciao, sono Mirko <br />
+        <strong>Bene</strong>
+      </p>
+      <img src="01abbdb3293f7011d8a760e66a744c62 copia.jpg" alt="l'immagine" />
+      <div>
+        <label for="name">Nome:</label>
+        <input type="password" id="name" name="name" />
+      </div>
+    </div>
+  </body>
+</html>

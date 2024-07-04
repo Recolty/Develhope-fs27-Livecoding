@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      main {
+        margin: 8px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .article:visited {
+        color: unset;
+      }
+
+      .article {
+        text-decoration: none;
+      }
+
+      article {
+        border: 2px solid darkgray;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        transition: transform 0.225s linear, box-shadow 0.225s linear;
+        cursor: pointer;
+      }
+
+      article:hover {
+        transform: translateY(-16px);
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      article img {
+        width: 200px;
+        height: 80px;
+      }
+
+      .carousel {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .carousel > *:nth-child(1) {
+        margin-left: auto;
+      }
+
+      .carousel > *:last-child {
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="carousel">
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/AK-47"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/65/AK-47_type_II_noBG.png"
+              alt="ak-47"
+            />
+            <h3>Ak-47</h3>
+            <p>Soviet style Assault Rifle</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/MG_42"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/2c/MG42_1_noBG.jpg"
+              alt="mg-42"
+            />
+            <h3>Mg-42</h3>
+            <p>Machine Gun</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/M1_Garand"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://www.denix.es/it/catalogo/7470/p/denix-Fucile-M1-Garand--USA-1932.jpg"
+              alt="m1-Garand"
+            />
+            <h3>M1-Garand</h3>
+            <p>American style Rifle</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/M1_Garand"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://www.denix.es/it/catalogo/7470/p/denix-Fucile-M1-Garand--USA-1932.jpg"
+              alt="m1-Garand"
+            />
+            <h3>M1-Garand</h3>
+            <p>American style Rifle</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/M1_Garand"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://www.denix.es/it/catalogo/7470/p/denix-Fucile-M1-Garand--USA-1932.jpg"
+              alt="m1-Garand"
+            />
+            <h3>M1-Garand</h3>
+            <p>American style Rifle</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/M1_Garand"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://www.denix.es/it/catalogo/7470/p/denix-Fucile-M1-Garand--USA-1932.jpg"
+              alt="m1-Garand"
+            />
+            <h3>M1-Garand</h3>
+            <p>American style Rifle</p>
+          </article>
+        </a>
+        <a
+          class="article"
+          href="https://it.wikipedia.org/wiki/M1_Garand"
+          target="_blank"
+        >
+          <article>
+            <img
+              src="https://www.denix.es/it/catalogo/7470/p/denix-Fucile-M1-Garand--USA-1932.jpg"
+              alt="m1-Garand"
+            />
+            <h3>M1-Garand</h3>
+            <p>American style Rifle</p>
+          </article>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
