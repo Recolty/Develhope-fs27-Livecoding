@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <ul id="sentences"></ul>
+    <button onclick="reverse()">Reverse</button>
+    <button onclick="uppercase()">Uppercase</button>
+    <button onclick="lowercase()">Lowercase</button>
+
+    <script>
+      const sentencesApi = ["Ciao", "Hello", "Salve"];
+
+      const list = document.getElementById("sentences");
+
+      function createList(array) {
+        list.innerHTML = "";
+        sentencesApi.forEach((arr) => {
+          const li = document.createElement("li");
+          li.innerHTML = arr;
+          list.appendChild(li);
+        });
+      }
+
+      createList();
+
+      function reverse() {
+        sentencesApi.reverse();
+        createList(sentencesApi);
+      }
+
+      function uppercase() {
+        for (let i = 0; i < sentencesApi.length; i++) {
+          sentencesApi[i] = sentencesApi[i].toUpperCase();
+        }
+        createList(sentencesApi);
+      }
+
+      function lowercase() {
+        for (let i = 0; i < sentencesApi.length; i++) {
+          sentencesApi[i] = sentencesApi[i].toLowerCase();
+        }
+        createList(sentencesApi);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      * {
+        margin: 0;
+      }
+      .cardholder {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+        padding: 10px; 
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(183, 183, 183);
+        padding: 20px;
+        width: 200px;
+        gap: 30px;
+        border-radius: 10px;
+      }
+
+      .ball {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background-color: black;
+        flex-shrink: 0;
+        margin-top: 8px;
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .element-list {
+        display: flex;
+        gap: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="cardholder">
+      <div class="card">
+        <h2>Carta 1</h2>
+        <div class="list">
+          <div class="element-list">
+            <div class="ball"></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque alias ratione quasi. Cupiditate quo accusamus exercitationem nulla quibusdam impedit quae quasi, beatae provident nam aliquid, facere vel, dolorum culpa ipsam?</p>
+          </div>
+          <div class="element-list">
+            <div class="ball"></div>
+            <p>Intestazione 2</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+          <h2>Carta 2</h2>
+          <div class="list">
+            <div class="element-list">
+              <div class="ball"></div>
+              <p>Intestazione 1</p>
+            </div>
+            <div class="element-list">
+              <div class="ball"></div>
+              <p>Intestazione 2</p>
+            </div>
+          </div>
+        </div>
+
+      <div class="card">
+        <h2>Carta 3</h2>
+        <div class="list">
+          <div class="element-list">
+            <div class="ball"></div>
+            <p>Intestazione 1</p>
+          </div>
+          <div class="element-list">
+            <div class="ball"></div>
+            <p>Intestazione 2</p>
+          </div>
+        </div>
+      </div>
+
+    
+  </body>
+</html>

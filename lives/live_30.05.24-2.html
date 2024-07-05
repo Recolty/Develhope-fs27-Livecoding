@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    nav {
+      background-color: rgb(234, 233, 233);
+      z-index: 1;
+      position: fixed;
+      width: 100vw;
+    }
+
+    .hellip {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      place-items: center;
+      border: none;
+      background-color: rgb(234, 233, 233);
+      padding: 10px;
+    }
+
+    .circle {
+      width: 5px;
+      height: 5px;
+      background-color: grey;
+      border-radius: 50%;
+    }
+
+    .hidden-container {
+      width: 100%;
+      height: 100vh;
+      left: 0;
+    }
+
+    .side-bar {
+      background-color: lightgray;
+      width: 30vw;
+      height: 100%;
+      display: flex;
+      position: fixed;
+      flex-direction: column;
+      align-items: center;
+      gap: 150px;
+      top: 0;
+      transform: translateX(-100%);
+      z-index: 3;
+      transition: transform 0.3s linear;
+    }
+
+    .cover-screen {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      width: 100%;
+      display: none;
+      position: fixed;
+      top: 0;
+      z-index: 2;
+    }
+
+    .top-sidebar {
+      display: flex;
+      width: 80%;
+      justify-content: space-between;
+      align-items: center;
+      align-self: center;
+      padding: 20px;
+    }
+
+    .top-sidebar button {
+      border: none;
+      background-color: transparent;
+    }
+
+    .container-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 90%;
+    }
+
+    .container-links a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .container-links a:hover {
+      color: orangered;
+    }
+
+    .showing {
+      display: flex;
+    }
+
+    .move {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button onclick="appears()" class="hellip">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </button>
+  </nav>
+  <div class="hidden-container" >
+    <div class="side-bar" id="sidebar">
+      <div class="top-sidebar">
+        <p>TUTTI I GIOCHI</p>
+        <button onclick="disappears()">X</button>
+      </div>
+      <div class="container-links">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+      </div>
+    </div>
+    </div>
+    <div onclick="disappears()" class="cover-screen"></div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar")
+    const cover = document.querySelector(".cover-screen")
+
+    function appears() {
+      sidebar.classList.add("move")
+      cover.classList.add("showing")
+    }
+
+    function disappears() {
+      sidebar.classList.remove("move")
+      cover.classList.remove("showing")
+    }
+
+  </script>
+</body>
+</html>

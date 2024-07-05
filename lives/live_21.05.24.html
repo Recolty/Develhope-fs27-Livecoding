@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin:0
+    }
+
+    .selected {
+      color: greenyellow;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="element" onclick="print(0)"> Elemento 1</p>
+    <p class="element" onclick="print(1)"> Elemento 2</p>
+    <p class="element" onclick="print(2)"> Elemento 3</p>
+  </div>
+  <p class="element">Elemento 4</p>
+  <script>
+    const elementArray = document.querySelectorAll(`.container .element`)
+    const element = document.querySelector (`.element`)
+    
+    function print(i) {
+      elementArray[i].classList.toggle(`selected`)
+      elementArray.forEach((p) => {
+        if (p !== elementArray[i]) {
+          p.classList.remove(`selected`)
+        }
+      })
+      console.log(elementArray[i].innerHTML)
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <!-- <input type="text" oninput="onType()"/>
+  <button onclick="submit()">Click me</button>
+  <p></p> -->
+    <form action="">
+      <input id="username" type="text"/> <span>Username</span>
+      <input id="password" type="password"> <span>Password</span>
+      <button type="submit" onclick="check(event)">Submit</button>
+    </form>
+
+
+  <script>
+    // const input = document.querySelector(`input`)
+    // const paragraph = document.querySelector(`p`)
+
+    // function submit() {
+    //   paragraph.innerText = input.value;
+    // }
+
+    // function onType() {
+    //   paragraph.innerText = input.value;
+    // }
+    const userName = document.querySelector(`#username`)
+    const password = document.querySelector(`#password`)
+    const form = document.querySelector(`form`)
+
+    function check(event) {
+      
+      if (password.value.length < 8) {
+        alert ("error: wrong password")
+        event.preventDefault()
+      }
+      if (userName.value[0] !== userName.value[0].toUpperCase()) {
+        alert ("error: wrong username")
+        event.preventDefault()
+      }
+    }
+  </script>
+</body>
+</html>

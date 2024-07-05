@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="aggiungi()">aggiungi</button>
+  <ul id="list"></ul>
+  <button onclick="reset()">reset</button>
+  
+  <script>
+    const listaDom = document.getElementById("list");
+
+    let contatore = 1;
+
+    function aggiungi() {
+      listaDom.innerHTML += `<li>${contatore}</li>`;
+      contatore += 1
+    }
+
+    function reset() {
+      listaDom.innerHTML = ""
+      contatore = 1
+    }
+    
+  </script>
+
+</body>
+</html>

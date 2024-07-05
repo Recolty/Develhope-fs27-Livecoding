@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .rectangle {
+        width: 50px;
+        height: 25px;
+      }
+
+      .red {
+        background-color: rgb(206, 66, 66);
+      }
+
+      .green {
+        background-color: rgb(47, 152, 75);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="red">
+        <button onclick="red()">Red</button>
+      </div>
+      <div class="box" id="green">
+        <button onclick="green()">Green</button>
+      </div>
+    </div>
+    <script>
+      const teamRed = document.getElementById("red");
+      const teamGreen = document.getElementById("green");
+
+      let redScore = 0;
+      let greenScore = 0;
+
+      function red() {
+        const rectangle = document.createElement("div");
+
+        teamRed.appendChild(rectangle);
+        rectangle.classList.add("rectangle", "red");
+        redScore++;
+
+        if (redScore === 10) {
+          alert("Red wins");
+        }
+      }
+
+      function green() {
+        const rectangle = document.createElement("div");
+
+        teamGreen.appendChild(rectangle);
+        rectangle.classList.add("rectangle", "green");
+        greenScore++;
+
+        if (greenScore === 10) {
+          alert("Green wins");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04/06/24-1</title>
+    <style>
+      button {
+        border-radius: 4px;
+        padding: 0.5em 1em;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3125rem;
+      }
+      .cardholder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .card {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 5px;
+        align-items: center;
+        border: 2px solid grey;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .selected {
+        border: 4px solid pink;
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="firstname" placeholder="Nome" />
+      <input type="text" id="surname" placeholder="Cognome" />
+      <select name="gender" id="gender">
+        <option value="Maschio">Maschio</option>
+        <option value="Femmina">Femmina</option>
+        <option value="Altro">Altro</option>
+      </select>
+      <input type="text" id="age" placeholder="Età" />
+      <button onclick="createUser()">Invia</button>
+      <div class="filter">
+        <button onclick="filterAllCards()" class="selected">All</button>
+        <button onclick="filterOver()">Maggiore uguale 25</button>
+        <button onclick="filterUnderAge()">Minore 25</button>
+      </div>
+    </div>
+    <div class="cardholder"></div>
+    <script>
+      const renderUser = document.getElementById("user");
+      const users = [];
+      let mode = 0;
+      const buttons = document.querySelectorAll(".filter button");
+
+      function createUser() {
+        const firstname = document.getElementById("firstname").value;
+        const surname = document.getElementById("surname").value;
+        const age = document.getElementById("age").value;
+        const gender = document.getElementById("gender").value;
+
+        const user = {
+          name: firstname,
+          surname: surname,
+          gender: gender,
+          age: +age,
+        };
+
+        users.push(user);
+
+        createCard(user);
+      }
+
+      function createCard(user) {
+        const cardHolder = document.querySelector(".cardholder");
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+        const nameCard = document.createElement("p");
+        nameCard.innerHTML = user.name;
+        const surnameCard = document.createElement("p");
+        surnameCard.innerHTML = user.surname;
+        const genderCard = document.createElement("p");
+        genderCard.innerHTML = user.gender;
+        const ageCard = document.createElement("p");
+        ageCard.innerHTML = user.age;
+
+        card.appendChild(nameCard);
+        card.appendChild(surnameCard);
+        card.appendChild(genderCard);
+        card.appendChild(ageCard);
+
+        cardHolder.appendChild(card);
+      }
+
+      function updateUI() {
+        const cards = document.querySelectorAll(".card");
+
+        if (mode === 0) {
+          cards.forEach((card) => {
+            card.classList.remove("hidden");
+          });
+        } else if (mode === 1) {
+          for (let i = 0; i < users.length; i++) {
+            if (users[i].age >= 25) {
+              cards[i].classList.remove("hidden");
+            } else {
+              cards[i].classList.add("hidden");
+            }
+          }
+        } else if (mode === 2) {
+          for (let i = 0; i < users.length; i++) {
+            if (users[i].age < 25) {
+              cards[i].classList.remove("hidden");
+            } else {
+              cards[i].classList.add("hidden");
+            }
+          }
+        }
+      }
+
+      function filterAllCards() {
+        mode = 0;
+        updateUI();
+        changeFocus(mode)
+      }
+
+      function filterOver() {
+        mode = 1;
+        updateUI();
+        changeFocus(mode)
+      }
+
+      function filterUnderAge() {
+        mode = 2;
+        updateUI();
+        changeFocus(mode)
+      }
+
+      function changeFocus(mode) {
+        for (let i = 0; i < buttons.length; i++) {
+          if (mode === i) {
+            buttons[i].classList.add("selected");
+          } else {
+            buttons[i].classList.remove("selected");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

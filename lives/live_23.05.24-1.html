@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .reset {
+      background-color: white;
+      color: red;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="div">
+  <input type="text" name="my-input" id="my-input">
+  <button class="btn">click me</button>
+</div>
+  <button onclick="clearAll()" class="reset">Clear all</button>
+  <ul></ul>
+  <script>
+    const input = document.getElementById(`my-input`)
+    const button = document.querySelector(`.btn`)
+    const ul = document.querySelector(`ul`)
+
+    button.addEventListener(`click`,(event) => {
+      const li = document.createElement(`li`)
+      li.innerHTML = input.value
+      const buttonClear = document.createElement(`button`)
+      ul.appendChild(li)
+      buttonClear.classList.add(`reset`)
+      buttonClear.innerHTML = `Clear`
+      buttonClear.addEventListener(`click`, (event) => {
+        // li.remove()
+        ul.removeChild(li)
+      })
+      li.appendChild(buttonClear)
+    })
+
+    function clearAll() {
+      ul.innerHTML = ``
+    }
+
+    function clear(element) {
+      element.remove()
+    }
+  </script>
+</body>
+</html>

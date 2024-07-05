@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 400px;
+      }
+
+      .rectangle {
+        width: 30px;
+        height: 200px;
+      }
+
+      .square {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+      }
+
+      .red {
+        background-color: red;
+        position: relative;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .blue {
+        background-color: blue;
+        top: 50px;
+      }
+
+      .yellow {
+        background-color: yellow;
+        bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="rectangle red">
+        <div class="square blue"></div>
+        <div class="square yellow"></div>
+      </div>
+      <div class="rectangle green"></div>
+    </div>
+    <button id="cavallo-1" onclick="cavallo1()">Cavallo 1</button>
+    <button id="cavallo-2" onclick="cavallo2()">Cavallo 2</button>
+
+    <script>
+      const cavalloGiallo = document.querySelector(`.yellow`);
+      const cavalloBlu = document.querySelector(`.blue`);
+
+      function cavallo1() {
+        cavalloGiallo.style.left =
+          cavalloGiallo.getBoundingClientRect().left + 8 + "px";
+        
+          console.log(cavalloGiallo.getBoundingClientRect().left)
+        if (cavalloGiallo.getBoundingClientRect().left >= 430) {
+          alert("Vince il Cavallo Giallo!");
+          cavalloGiallo.style.left = "0"
+          cavalloBlu.style.left ="0"
+        }
+      }
+
+      function cavallo2() {
+        cavalloBlu.style.left =
+          cavalloBlu.getBoundingClientRect().left + 8 + "px";
+        if (cavalloBlu.getBoundingClientRect().left >= 430) {
+          alert("Vince il Cavallo Blu!");
+          cavalloGiallo.style.left = "0"
+          cavalloBlu.style.left ="0"
+        }
+      }
+    </script>
+  </body>
+</html>

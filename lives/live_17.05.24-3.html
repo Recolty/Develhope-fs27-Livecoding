@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="aggiungi()">Aggiungi</button>
+  <ul id="list"></ul>
+  <button onclick="reset()">Reset</button>
+
+  <script>
+    const listDom = document.getElementById("list")
+    let contatore = 1
+
+    function aggiungi() {
+      if (contatore < 6) {
+        listDom.innerHTML += `<li style="color:red">${contatore}</li>`
+      } else {
+        listDom.innerHTML += `<li style="color:green">${contatore}</li>`
+      }
+      contatore += 1
+    }
+
+    function reset() {
+      listDom.innerHTML = ""
+      contatore = 1
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+      }
+
+      .contenitore-cerchio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .cerchio {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: red;
+        place-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button" onclick="bigger()">Get Bigger</button>
+
+    <div class="contenitore-cerchio">
+      <div class="cerchio" id="circle"></div>
+    </div>
+
+    <script>
+      const circle = document.getElementById(`circle`);
+
+      function bigger() {
+
+        circle.style.width = circle.getBoundingClientRect().width + 20 + "px";
+        circle.style.height = circle.getBoundingClientRect().height + 20 + "px";
+        console.log(circle.getBoundingClientRect());
+
+        if (circle.getBoundingClientRect().width >= 400) {
+          circle.style.width = `200px`
+          circle.style.height = `200px`
+        }
+      }
+    </script>
+  </body>
+</html>

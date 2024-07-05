@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .square {
+        height: 200px;
+        width: 200px;
+      }
+
+      .pink {
+        background-color: pink;
+      }
+
+      .blue {
+        background-color: lightblue;
+      }
+
+      .yellow {
+        background-color: lightyellow;
+      }
+
+      .selected {
+        border: 5px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="square pink" id="first-div"></div>
+      <div class="square blue" id="second-div"></div>
+      <div class="square yellow" id="third-div"></div>
+    </div>
+    <button onclick="swapColor()">Swap Colors</button>
+
+    <script>
+      const squares = document.querySelectorAll(`.square`);
+      const colors = [`pink`, `blue`, `yellow`];
+      const btn = document.querySelector(`button`);
+      let firstSquare = null;
+      let secondSquare = null;
+
+      function swapColor() {
+        for (let i = 0; i < squares.length; i++) {
+          squares[i].classList.remove(colors[i]);
+        }
+
+        colors.unshift(colors.pop());
+        console.log(colors);
+
+        for (let i = 0; i < squares.length; i++) {
+          squares[i].classList.add(colors[i]);
+        }
+      }
+
+      for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener("click", (evento) => {
+          if (firstSquare === null) {
+            firstSquare = i;
+            squares[firstSquare].classList.add(`selected`)
+          } else {
+            secondSquare = i;
+
+            squares[firstSquare].classList.remove(colors[firstSquare]);
+            squares[secondSquare].classList.remove(colors[secondSquare]);
+
+            const temp = colors[firstSquare];
+            colors[firstSquare] = colors[secondSquare];
+            colors[secondSquare] = temp;
+
+            squares[firstSquare].classList.add(colors[firstSquare]);
+            squares[secondSquare].classList.add(colors[secondSquare]);
+
+            squares[firstSquare].classList.remove(`selected`)
+            firstSquare = null;
+            secondSquare = null;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
