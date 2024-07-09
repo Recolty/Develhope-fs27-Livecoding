@@ -1,0 +1,19 @@
+.body {
+  background-color: rgb(24, 24, 59);
+  height: 100vh;
+  padding: 50px;
+}
+
+.rating button {
+  background-color: rgb(227, 225, 225);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.rating button:hover,
+.rating button.selected {
+  background-color: #ff6a95;
+  color: white;
+}
