@@ -1,10 +1,22 @@
-/* import { useState } from "react";
- */ import "@tailwindcss/forms";
+import { useState } from "react";
+ import "@tailwindcss/forms";
 
 export function Login() {
-  /*   const [mail, setMail] = useState("");
-  const [password, setPassword] = useState(""); */
+   const [mail, setMail] = useState("");
+   const [password, setPassword] = useState(""); 
 
+   const handleSubmit = async(e) => {
+    try {
+      // setMail((e) => {e.target.value})
+      // setPassword((e) => {e.target.value})
+      alert( mail )
+      alert ( password )
+    } catch (error) {
+      console.error(error)
+    }
+
+   }
+ 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg">
@@ -35,6 +47,8 @@ export function Login() {
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -66,6 +80,8 @@ export function Login() {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -96,6 +112,7 @@ export function Login() {
           <button
             type="submit"
             className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+            onClick={handleSubmit}
           >
             Sign in
           </button>
