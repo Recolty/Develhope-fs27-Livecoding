@@ -1,22 +1,39 @@
 import { useState } from "react";
- import "@tailwindcss/forms";
+import "@tailwindcss/forms";
 
 export function Login() {
-   const [mail, setMail] = useState("");
-   const [password, setPassword] = useState(""); 
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
 
-   const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     try {
-      // setMail((e) => {e.target.value})
-      // setPassword((e) => {e.target.value})
-      alert( mail )
-      alert ( password )
-    } catch (error) {
-      console.error(error)
-    }
+      // TODO da qui parte la chiamata al backend del login
+      // TODO aspetta la risposta del backend se il login può avvenire
 
-   }
- 
+      /* simulo la chiamata al backend col setTimeout */
+      alert("invio chiamata al server in corso!");
+      setTimeout(() => {
+        //TODO inviamo al backend mail e password
+        /*   alert(mail);
+        alert(password); */
+
+        /* con la const userData simuliamo i dati dell'utente ricevuti dal backend tranne la password */
+        const userData = {
+          name: "Mario",
+          surname: "Rossi",
+          email: mail,
+          isAdmin: true,
+        };
+        const userDataFormatted = JSON.stringify(userData);
+
+        localStorage.setItem("userInfo", userDataFormatted);
+        alert("login avvenuto con successo!");
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg">
