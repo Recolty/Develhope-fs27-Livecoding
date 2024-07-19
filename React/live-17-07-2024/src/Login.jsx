@@ -8,6 +8,7 @@ export function Login() {
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       // TODO da qui parte la chiamata al backend del login
       // TODO aspetta la risposta del backend se il login può avvenire
@@ -31,12 +32,14 @@ export function Login() {
         localStorage.setItem("userInfo", userDataFormatted);
         alert("login avvenuto con successo!");
         //Redirect alla Dashboard
-        navigate("/dashboard")
+        navigate("/dashboard");
       }, 2000);
     } catch (error) {
       console.error(error);
     }
   };
+
+  
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
