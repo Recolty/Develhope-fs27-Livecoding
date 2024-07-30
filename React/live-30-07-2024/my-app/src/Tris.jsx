@@ -10,7 +10,6 @@ export function Tris() {
   function handleClick(row, col) {
     if (matrix[row][col] == 0) {
       matrix[row][col] = symbol;
-      console.log(matrix);
       for (let i = 0; i < matrix.length; i++) {
         if (matrix[i].find((s) => s != symbol) === undefined) {
           alert(
@@ -47,6 +46,14 @@ export function Tris() {
           setSymbol(1);
           return;
         }
+      }
+
+      for (let i = 0; i < matrix.length; i++) {
+        const diago = [];
+        for (let j = 0; j < matrix.length; j++) {
+          diago.push(matrix[j][i]);
+        }
+        
       }
       setMatrix(() => {
         const newMatrix = [...matrix];
