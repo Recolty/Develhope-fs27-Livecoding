@@ -1,0 +1,33 @@
+.game {
+  display: flex;
+
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  background-color: black;
+  gap: 2px;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.line {
+  width: 60%;
+  height: 2px;
+  background-color: blue;
+  transform: rotate(45deg);
+}
+
+.circle {
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid red;
+}
