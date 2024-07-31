@@ -48,13 +48,52 @@ export function Tris() {
         }
       }
 
+      const diagonal1 = [];
+      const diagonal2 = [];
+
       for (let i = 0; i < matrix.length; i++) {
-        const diago = [];
-        for (let j = 0; j < matrix.length; j++) {
-          diago.push(matrix[j][i]);
-        }
-        
+        diagonal1.push(matrix[i][i]);
+        diagonal2.push(matrix[i][matrix.length - 1 - i]);
       }
+      if (
+        diagonal1.find((s) => s != symbol) === undefined ||
+        diagonal2.find((s) => s != symbol) === undefined
+      ) {
+        alert(
+          `il simbolo che ha vinto è ${
+            symbol == 1 ? "croce" : symbol == 2 ? "cerchio" : ""
+          }`
+        );
+        setMatrix([
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+        ]);
+        setSymbol(1);
+        return;
+      }
+      let pareggio = true;
+      
+      for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+          if (matrix[j][i] === 0) {
+            pareggio = false
+            break
+          }
+        }
+      } if(pareggio){
+        alert(
+          `pareggio`
+        );
+        setMatrix([
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+        ]);
+        setSymbol(1);
+        return;
+      }
+
       setMatrix(() => {
         const newMatrix = [...matrix];
         newMatrix[row][col] = symbol;
@@ -67,14 +106,14 @@ export function Tris() {
   return (
     <div className="game">
       <div className="game-container">
-        {matrix.map((row, index) =>
-          row.map((col, i) => {
+        {matrix.map((row, riga) =>
+          row.map((col, colonna) => {
             return (
               <div
                 className="check"
-                key={i}
+                key={colonna}
                 onClick={() => {
-                  handleClick(index, i);
+                  handleClick(riga, colonna);
                 }}
               >
                 {" "}
