@@ -1,6 +1,10 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.19.2",
     "typescript": "^5.5.4"
+=======
+    "express": "^4.19.2"
+>>>>>>> e42651519a97a5d0ec15ab463e8328d61e7eaf7f
   }
 }
