@@ -4,6 +4,7 @@ const heroes = require("./heroes.js") ;
 
 //se la richiesta contiene nell'url heroes ti restituisce tutti gli eroi
 const server = express()
+server.use(express.json())
 server.get("/heroes", (req, res) =>{
     res.json(heroes)
 } )
@@ -18,6 +19,13 @@ server.get("/heroes/:id", (req, res)=>{
    }else{res.status(404).end()}
 })
 
+server.post("/heroes", (req, res) => {
+console.log(req.body)
+const id = heroes[heroes.length -1].id + 1
+heroes.push({...req.body, id})
+res.end()
+})
+
 const port = 3000;
 
 server.listen(port, () => {
@@ -26,4 +34,4 @@ server.listen(port, () => {
 
 //su http si esegue ogni richiesta nella funz principale e noi dobbiamo smistarle
 //su express noi creiamo una funzione per ogni diversa richiesta e ogni funzione viene eseguita
-//solo se motodo e url coincidono: dobbiamo preoccuparci solo della logica! :)
+//solo se motodo e url coincidono: dobbiamo preoccuparci solo della logica! 
