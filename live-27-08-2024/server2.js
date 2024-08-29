@@ -20,15 +20,23 @@ server.get("/heroes/:id", (req, res)=>{
 })
 
 server.post("/heroes", (req, res) => {
-console.log(req.body)
-const id = heroes[heroes.length -1].id + 1
-heroes.push({...req.body, id})
-res.end()
+    console.log(req.body)
+    const id = heroes[heroes.length -1].id + 1
+    heroes.push({...req.body, id})
+    res.end()
 })
 
 server.delete("/heroes/:id", (req, res)=>{
-  
+ const id = +req.params.id;
+ const heroIndex = heroes.findIndex((hero)=> hero.id === id)
+ if(heroIndex == -1){
+  res.status(404).end()
+ }else{
+  const eliminati = heroes.splice(heroIndex , 1)
+  res.status(200).json(eliminati[0])
+ }
 })
+
 
 const port = 3000;
 
