@@ -37,6 +37,19 @@ server.delete("/heroes/:id", (req, res)=>{
  }
 })
 
+server.put("/heroes", (req, res) => {
+  const editedHero = req.body
+
+  const heroIndex = heroes.findIndex(hero => hero.id === editedHero.id)
+
+  if (heroIndex === -1) {
+    res.status(404).end()
+  } else {
+    heroes[heroIndex] = editedHero
+    res.status(200).json(heroes[heroIndex])
+  }
+})
+
 
 const port = 3000;
 
