@@ -1,6 +1,6 @@
 const express = require("express")
 const heroes = require("./people.js")
-const {getHeroes, getHeroById, addHero} = require("./db.js")
+const {getHeroes, getHeroById, addHero, deleteHeroById} = require("./db.js")
 
 const server = express()
 server.use(express.json())
@@ -43,10 +43,18 @@ server.get("/heroes/:id", async (req, res) => {
   }
 })
 
-server.delete("/heroes/:id", (req, res) => {
+server.delete("/heroes/:id", async (req, res) => {
   const {id} = req.params
 
-  const deleteHero = heroes.findIndex(hero => hero.id === Number(id))
+  const deletedHero = await deleteHeroById(Number(id))
+
+  if(deletedHero) {
+    return res.json(deletedHero)
+  } else {
+    return res.status(404).json({msg: "Hero not found"})
+  }
+
+ /* const deleteHero = heroes.findIndex(hero => hero.id === Number(id))
 
   if (deleteHero === -1) {
     return res.status(404).json({msg: "Hero not found"})
@@ -54,7 +62,7 @@ server.delete("/heroes/:id", (req, res) => {
 
   const hero = heroes.splice(deleteHero, 1)
 
-  res.status(200).json(hero[0])
+  res.status(200).json(hero[0]) */
 })
 
 server.put("/heroes", (req, res) => {
