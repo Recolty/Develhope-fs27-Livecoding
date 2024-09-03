@@ -1,0 +1,15 @@
+{
+  "name": "live_27_08_24",
+  "version": "1.0.0",
+  "description": "tutor-express",
+  "main": "people.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Andrea",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^11.9.1"
+  }
+}
