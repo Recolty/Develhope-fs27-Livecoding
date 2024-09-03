@@ -37,4 +37,12 @@ async function deleteHeroById(id) {
   return deletedHero
 }
 
-module.exports = {getHeroes, getHeroById, addHero, deleteHeroById}
+async function updateHero(hero) {
+  const updateHero = await db.oneOrNone(
+  ` UPDATE heroes SET name = $1, age = $2 WHERE id = $3 
+    RETURNING *` , [hero.name, hero.age, hero.id]
+  )
+  return updateHero
+}
+
+module.exports = {getHeroes, getHeroById, addHero, deleteHeroById, updateHero}

@@ -1,6 +1,6 @@
 const express = require("express")
 const heroes = require("./people.js")
-const {getHeroes, getHeroById, addHero, deleteHeroById} = require("./db.js")
+const {getHeroes, getHeroById, addHero, deleteHeroById, updateHero} = require("./db.js")
 
 const server = express()
 server.use(express.json())
@@ -65,16 +65,15 @@ server.delete("/heroes/:id", async (req, res) => {
   res.status(200).json(hero[0]) */
 })
 
-server.put("/heroes", (req, res) => {
+server.put("/heroes", async (req, res) => {
   const editedHero = req.body
 
-  const heroIndex = heroes.findIndex(hero => hero.id === editedHero.id)
+  const updateHero = await updateHero(editedHero)
 
-  if (heroIndex === -1) {
-    res.status(404).end()
+  if (updateHero) {
+    res.status(200).json(updateHero)
   } else {
-    heroes[heroIndex] = editedHero
-    res.status(200).json(heroes[heroIndex])
+    res.status(404).end()
   }
 })
 
