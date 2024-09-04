@@ -35,12 +35,16 @@ server.get("/heroes/:id", async (req, res) => {
   // const hero = heroes.find(h => h.id === Number(id))
 
   const hero = await getHeroById(Number(id))
-
+try{
   if (hero) {
     res.status(200).json(hero)
   } else {
     res.status(404).json({msg: "Hero not found"})
   }
+}catch (error) {
+  console.log(error);
+  res.status(500).end()
+}
 })
 
 server.delete("/heroes/:id", async (req, res) => {
@@ -66,16 +70,28 @@ server.delete("/heroes/:id", async (req, res) => {
 })
 
 server.put("/heroes", async (req, res) => {
+  try {
+  
   const editedHero = req.body
 
-  const updateHero = await updateHero(editedHero)
+  const updatedHero = await updateHero(editedHero)
 
-  if (updateHero) {
-    res.status(200).json(updateHero)
+  if (updatedHero) {
+    res.status(200).json(updatedHero)
   } else {
     res.status(404).end()
   }
-})
+}catch (error) {
+  console.log(error);
+  res.status(500).end()
+}
+
+
+});
+
+
+
+  
 
 const port = 3000
 

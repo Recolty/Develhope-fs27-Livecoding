@@ -1,6 +1,6 @@
 const pgPromise = require("pg-promise")
 
-const db = pgPromise()("postgres://postgres:postgres@localhost:5432/f27")
+const db = pgPromise()("postgres://postgres:%Tucano01@localhost:5432/f27")
 
 async function getHeroes() {
   const heroes = await db.manyOrNone(
