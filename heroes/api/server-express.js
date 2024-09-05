@@ -1,8 +1,11 @@
+require("dotenv").config()
+
 const express = require("express")
 const heroes = require("./people.js")
 const { getHeroes, getHeroById, addHero, deleteHeroById, updateHero } = require("./db.js")
 const cors = require("cors")
 const server = express()
+
 server.use(express.json())
 server.use(cors())
 server.get("/heroes", async (req, res) => {
@@ -85,15 +88,9 @@ server.put("/heroes", async (req, res) => {
     console.log(error);
     res.status(500).end()
   }
-
-
 });
 
-
-
-
-
-const port = 3000
+const port = process.env.PORT
 
 server.listen(port, () => {
   console.log(`Server opened at port ${port}`)

@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.show-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 200px;
+  align-items: center;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 100%;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.hero-card h2 {
+  color: red;
+  font-size: xx-large;
+}
+
+.hero-card p {
+  font-size: larger;
+  color: blue;
+}
+
+.delete-card {
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: red;
+}
