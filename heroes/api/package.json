@@ -10,8 +10,10 @@
   "author": "Andrea",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "expres": "^0.0.5",
     "express": "^4.19.2",
-    "pg-promise": "^11.9.1"
+    "pg-promise": "^11.9.1",
+    "react-router-dom": "^6.26.1"
   }
 }

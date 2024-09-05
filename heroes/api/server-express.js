@@ -1,16 +1,16 @@
 const express = require("express")
 const heroes = require("./people.js")
-const {getHeroes, getHeroById, addHero, deleteHeroById, updateHero} = require("./db.js")
-
+const { getHeroes, getHeroById, addHero, deleteHeroById, updateHero } = require("./db.js")
+const cors = require("cors")
 const server = express()
 server.use(express.json())
-
+server.use(cors())
 server.get("/heroes", async (req, res) => {
   res.status(200).json(await getHeroes())
 })
 
 server.post("/heroes", async (req, res) => {
-  const {name, age} = req.body
+  const { name, age } = req.body
 
   // const id = heroes[heroes.length -1].id +1
 
@@ -30,68 +30,68 @@ server.post("/heroes", async (req, res) => {
 })
 
 server.get("/heroes/:id", async (req, res) => {
-  const {id} = req.params
+  const { id } = req.params
 
   // const hero = heroes.find(h => h.id === Number(id))
 
   const hero = await getHeroById(Number(id))
-try{
-  if (hero) {
-    res.status(200).json(hero)
-  } else {
-    res.status(404).json({msg: "Hero not found"})
+  try {
+    if (hero) {
+      res.status(200).json(hero)
+    } else {
+      res.status(404).json({ msg: "Hero not found" })
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).end()
   }
-}catch (error) {
-  console.log(error);
-  res.status(500).end()
-}
 })
 
 server.delete("/heroes/:id", async (req, res) => {
-  const {id} = req.params
+  const { id } = req.params
 
   const deletedHero = await deleteHeroById(Number(id))
 
-  if(deletedHero) {
+  if (deletedHero) {
     return res.json(deletedHero)
   } else {
-    return res.status(404).json({msg: "Hero not found"})
+    return res.status(404).json({ msg: "Hero not found" })
   }
 
- /* const deleteHero = heroes.findIndex(hero => hero.id === Number(id))
-
-  if (deleteHero === -1) {
-    return res.status(404).json({msg: "Hero not found"})
-  }
-
-  const hero = heroes.splice(deleteHero, 1)
-
-  res.status(200).json(hero[0]) */
+  /* const deleteHero = heroes.findIndex(hero => hero.id === Number(id))
+ 
+   if (deleteHero === -1) {
+     return res.status(404).json({msg: "Hero not found"})
+   }
+ 
+   const hero = heroes.splice(deleteHero, 1)
+ 
+   res.status(200).json(hero[0]) */
 })
 
 server.put("/heroes", async (req, res) => {
   try {
-  
-  const editedHero = req.body
 
-  const updatedHero = await updateHero(editedHero)
+    const editedHero = req.body
 
-  if (updatedHero) {
-    res.status(200).json(updatedHero)
-  } else {
-    res.status(404).end()
+    const updatedHero = await updateHero(editedHero)
+
+    if (updatedHero) {
+      res.status(200).json(updatedHero)
+    } else {
+      res.status(404).end()
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).end()
   }
-}catch (error) {
-  console.log(error);
-  res.status(500).end()
-}
 
 
 });
 
 
 
-  
+
 
 const port = 3000
 
